@@ -1,0 +1,23 @@
+.sort-dropdown{
+    width:60%;
+}
+.sort-button{
+    width:20%;
+    height: 100%;
+    background-color: var(--secondary-color);
+}
+.radio-bg{
+    background-color: var(--secondary-color);
+}
+
+.accitem{
+    height:80%;
+    border:2px solid gray;
+    border-radius: 50px !important;
+}
+.sortdiv{
+    padding-left: 10px;
+}
+.accordion {
+    --bs-accordion-bg:none !important;
+}

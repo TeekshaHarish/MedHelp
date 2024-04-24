@@ -1,0 +1,27 @@
+@import url("vars.css");
+.docimg{
+    width:150px !important;
+    height:150px;
+}
+.spz{
+    /* background-color: rgb(205, 151, 255); */
+    /* background-color: var(--color-3); */
+    background-color: #7b8fff;
+    border-radius: 10px;
+    border: 2px solid var(--secondary-color);
+    padding: 5px 10px;
+    margin:5px;
+    
+}
+.ant-form-item-label label {
+    font-size: 18px !important; 
+  }
+  .w-40{
+    width: 30%;
+  }
+  .ant-input {
+    font-size: 15px; /* Adjust the font size to your preference */
+  }
+  .ant-table-thead > tr > th {
+    background-color: #7FC7D9 !important; /* Change the background color to your preferred color */
+  }

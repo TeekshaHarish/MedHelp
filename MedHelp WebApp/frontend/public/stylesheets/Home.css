@@ -1,0 +1,87 @@
+@import url(vars.css);
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* background-color: #f8f9fa; */
+}
+.feature {
+    padding: 50px 20px;
+    text-align: center;
+ 
+    margin: 20px 0;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.cta {
+    /* background-color: #007bff; */
+    background-color: rgb(0, 0, 159);
+    color:white;
+    /* padding: 50px 20px; */
+    padding:1rem 2rem;
+    text-align: center;
+    /* margin: 20px 0; */
+    border-radius: 20px;
+}
+
+.hero{
+    background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url("https://i.pinimg.com/736x/c6/7c/c1/c67cc114fc289a3eacc442da873053b2.jpg");
+    height:80vh;
+    width:100%;
+    background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* color:aliceblue; */
+}
+.hero>h1{
+    /* color:rgb(0,7,61); */
+    color:aliceblue;
+    font-size: 4.2rem;
+    
+}
+.hero>p{
+    color:aliceblue;
+}
+.hero>p{
+    font-size: 2rem;
+    font-style: italic;
+}
+.main{
+    background: linear-gradient(#DCF2F1,#7FC7D9);
+}
+.main>h2{
+    text-align: center;
+    font-size: 3rem;
+    /* color:rgb(0,7,61); */
+    color:aliceblue;
+    color:rgb(0,7,61);
+    padding-top: 2rem;
+
+}
+
+section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+section>.left{
+    height:40vh;
+    width:50%;
+   
+    background: url("./health.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 2rem;
+
+}
+section>.right{
+    height:40vh;
+    width:50%;
+
+}
