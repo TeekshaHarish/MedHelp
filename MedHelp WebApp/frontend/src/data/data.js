@@ -15,11 +15,6 @@ export const userMenu = [
     icon: "fa-solid fa-user-doctor",
   },
   {
-    name: "Profile",
-    path: "/profile",
-    icon: "fa-solid fa-user",
-  },
-  {
     name: "Symptoms",
     path: "/symptoms",
     icon: "fa-solid fa-stethoscope",
@@ -74,11 +69,6 @@ export const adminMenu = [
   {
     name: "Users",
     path: "/admin/users",
-    icon: "fa-solid fa-user",
-  },
-  {
-    name: "Profile",
-    path: "/profile",
     icon: "fa-solid fa-user",
   },
   {

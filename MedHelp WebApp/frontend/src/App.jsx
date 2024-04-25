@@ -32,9 +32,9 @@ function App() {
             <Route
               path="/"
               element={
-                <ProtectedRoute>
-                  <Home />
-                </ProtectedRoute>
+                // <PublicRoute>
+                <Home />
+                // {/* </PublicRoute> */}
               }
             />
             <Route

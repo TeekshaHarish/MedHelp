@@ -55,6 +55,7 @@
     margin-top: 15px;
     display: flex;
     flex-direction: column;
+    align-items: start;
     gap: 5px;
   }
   .routes .link {
@@ -85,4 +86,8 @@
     margin-top: auto;
     width: 100%;
     text-align: center;
+   }
+   a{
+    text-decoration: none;
+    color:white;
    }

@@ -8,8 +8,8 @@ body {
 .feature {
     padding: 50px 20px;
     text-align: center;
- 
-    margin: 20px 0;
+    width: 90%;
+    margin: 25px auto;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
@@ -82,6 +82,46 @@ section>.left{
 }
 section>.right{
     height:40vh;
-    width:50%;
+    width:45%;
+    margin: auto;
 
 }
+#symptom>.left{
+    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMJSZTA3UdlY5dM8e3dFyka19YWSEq30BWTqDA9ypk5Q&s");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+#doctor>.left{
+    background: url("https://img.freepik.com/free-vector/doctors-concept-illustration_114360-1515.jpg?size=626&ext=jpg&ga=GA1.1.553209589.1713916800&semt=sph");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+#user>.left{
+    background: url("https://cdni.iconscout.com/illustration/premium/thumb/online-healthcare-3420630-2862289.png?f=webp");
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    background-position: center;
+    background-size: contain;
+    height: 50vh;
+    width:45%;
+    /* height: 100%; */
+}
+#symptom>.right>p{
+    width: 90%;
+    margin: auto;
+}
+#doctor>.right>p{
+    width: 92%;
+    margin: auto;
+}
+#user>.right>p{
+    width: 95%;
+    margin: auto;
+}
+footer {
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+   }

@@ -1,12 +1,10 @@
-// import axios from "axios";
 import Layout from "./../components/Layout";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { message } from "antd";
 import DoctorCard from "../components/DoctorCard";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import FilterSortForm from "../components/FilterSortForm";
-import { MdQuickreply } from "react-icons/md";
 
 const medicalConditionsSpecializations = {
   "Fungal infection": ["Dermatologist", "General Practitioner"],
@@ -73,20 +71,22 @@ const medicalConditionsSpecializations = {
 
 let predDisease;
 const RecommendedDoctors = () => {
+  const navigate = useNavigate();
   let query = {
     specialization: { $in: medicalConditionsSpecializations[predDisease] },
   };
-  console.log("qr", query);
+  // console.log("qr", query);
   const location = useLocation();
   //   const predictedDisease = location.state?.myProp;
   const predictedDisease = location.state && location.state.predictedDisease;
   predDisease = predictedDisease;
-  console.log(predDisease);
+  // console.log("PRED", predictedDisease);
+  // console.log(predDisease);
 
   const [doctors, setDoctors] = useState();
 
-  console.log(predDisease);
-  console.log("SP", medicalConditionsSpecializations[predDisease]);
+  // console.log(predDisease);
+  // console.log("SP", medicalConditionsSpecializations[predDisease]);
   const getRecommendedDoctors = async () => {
     try {
       const res = await axios.post(
@@ -111,9 +111,10 @@ const RecommendedDoctors = () => {
   };
   const onSubmitFilter = (values) => {
     console.log(values);
-    // const query = {};
     query = {
-      specialization: { $in: medicalConditionsSpecializations[predDisease] },
+      specialization: {
+        $in: medicalConditionsSpecializations[predictedDisease],
+      },
     };
     if (values.specialization) {
       query.specialization = { $in: values.specialization };
@@ -130,7 +131,6 @@ const RecommendedDoctors = () => {
         $lte: parseInt(values.feesPerConsultation),
       };
     }
-    console.log(query);
     getRecommendedDoctors();
   };
 
@@ -143,8 +143,6 @@ const RecommendedDoctors = () => {
     }
     const querysort = {};
     querysort[values.sortBy] = values.order;
-    // console.log(querysort);
-    // console.log(doctors.sort(querysort));
     try {
       const res = await axios.post(
         `${import.meta.env.VITE_BACKEND_API}/api/v1/user/getRecommendedDoctors`,
@@ -171,6 +169,9 @@ const RecommendedDoctors = () => {
   };
 
   useEffect(() => {
+    if (predictedDisease == null) {
+      navigate("/symptoms");
+    }
     getRecommendedDoctors();
   }, []);
 
