@@ -78,7 +78,7 @@ const Home = () => {
         </button>
       </div>
 
-      <footer class="footer bg-dark text-center text-light py-2 px-5 pt-3">
+      <footer className="footer bg-dark text-center text-light py-2 px-5 pt-3">
         <p>&copy; 2024 MedHelp. Made with ❤️ by Teeksha.</p>
       </footer>
     </>

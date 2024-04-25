@@ -6,7 +6,7 @@ import "../../public/stylesheets/Sidebar.css";
 import Navbar from "./Navbar";
 let open = false;
 const SideBar = ({ children, routes, user }) => {
-  console.log(routes);
+  // console.log(routes);
   const [isOpen, setIsOpen] = useState(open);
   const toggle = () => {
     open = !isOpen;
@@ -52,7 +52,7 @@ const SideBar = ({ children, routes, user }) => {
       <div className="main-container">
         <motion.div
           animate={{
-            width: isOpen ? "230px" : "50px",
+            width: isOpen ? "250px" : "50px",
 
             transition: {
               duration: 0.5,
@@ -118,7 +118,7 @@ const SideBar = ({ children, routes, user }) => {
         <div className="w-100">
           <Navbar user={user} />
           <main>{children}</main>
-          <footer class="footer bg-dark text-center text-light py-2 px-5 pt-3">
+          <footer className="footer bg-dark text-center text-light py-2 px-5 pt-3">
             <p>&copy; 2024 MedHelp. Made with ❤️ by Teeksha.</p>
           </footer>
         </div>

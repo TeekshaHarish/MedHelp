@@ -4,28 +4,7 @@ import { Col, Form, Input, Row, Select, TimePicker, message } from "antd";
 // import "antd/dist/antd.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
-const specialisation = [
-  "ENT Specialist",
-  "Dermatologist",
-  "Urologist",
-  "Orthopedic Surgeon",
-  "Rheumatologist",
-  "Endocrinologist",
-  "Vascular Surgeon",
-  "Cardiologist",
-  "General Surgeon",
-  "Internal Medicine Physician",
-  "Hepatologist",
-  "Pulmonologist",
-  "General Practitioner",
-  "Infectious Disease Specialist",
-  "Pediatrician",
-  "Neurologist",
-  "Gastroenterologist",
-  "Allergist",
-  "Immunologist",
-];
+import { specialisation } from "../data/meddata";
 
 export const ApplyDoctor = () => {
   const navigate = useNavigate();

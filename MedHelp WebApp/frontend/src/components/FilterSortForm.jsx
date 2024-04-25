@@ -86,20 +86,20 @@ const FilterSortForm = ({ onSubmitFilter, onSubmitSort }) => {
               {/* </div>
           <div className="col-md-4"> */}
               <div
-                class="btn-group"
+                className="btn-group"
                 role="group"
                 aria-label="Basic radio toggle button group"
                 style={{ height: "35px", width: "35px" }}
               >
                 <input
                   type="radio"
-                  class="btn-check"
+                  className="btn-check"
                   name="btnradio"
                   id="btnradio1"
                   autocomplete="off"
                   checked
                 />
-                <label class="btn btn-outline-primary" for="btnradio1">
+                <label className="btn btn-outline-primary" for="btnradio1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 384 512"
@@ -111,12 +111,12 @@ const FilterSortForm = ({ onSubmitFilter, onSubmitSort }) => {
 
                 <input
                   type="radio"
-                  class="btn-check d-flex align-items-center "
+                  className="btn-check d-flex align-items-center "
                   name="btnradio"
                   id="btnradio2"
                   autocomplete="off"
                 />
-                <label class="btn btn-outline-primary" for="btnradio2">
+                <label className="btn btn-outline-primary" for="btnradio2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 384 512"
@@ -143,15 +143,15 @@ const FilterSortForm = ({ onSubmitFilter, onSubmitSort }) => {
           </Form>
         </div>
         <div className="col-lg-6">
-          <div class="accordion accordion-flush" id="accordionExample">
-            <div class="accordion-item">
+          <div className="accordion accordion-flush" id="accordionExample">
+            <div className="accordion-item">
               <h2
-                class="accordion-header"
+                className="accordion-header"
                 id="headingOne"
                 style={{ background: "none" }}
               >
                 <button
-                  class="accordion-button collapsed accitem"
+                  className="accordion-button collapsed accitem"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#collapseOne"
@@ -163,11 +163,11 @@ const FilterSortForm = ({ onSubmitFilter, onSubmitSort }) => {
               </h2>
               <div
                 id="collapseOne"
-                class="accordion-collapse collapse"
+                className="accordion-collapse collapse"
                 aria-labelledby="headingOne"
                 data-bs-parent="#accordionExample"
               >
-                <div class="accordion-body">
+                <div className="accordion-body">
                   <Form
                     onFinish={(values) => {
                       let obj = values;

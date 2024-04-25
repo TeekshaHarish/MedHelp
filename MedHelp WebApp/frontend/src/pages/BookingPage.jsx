@@ -168,6 +168,7 @@ const BookingPage = () => {
       );
       if (res.data.success) {
         message.success(res.data.message);
+        getDoctorData();
       } else {
         message.error(res.data.message);
       }
@@ -206,186 +207,201 @@ const BookingPage = () => {
   };
   return (
     <Layout>
-      <h3>Booking Page</h3>
+      <h3 className="text-center my-3 fs-2">Booking Page</h3>
       <div className="container">
         {doctor && (
           <div className="div">
-            <h4>
-              Dr. {doctor.firstName} {doctor.lastName}
-            </h4>
-            <p>
-              <b>Phone</b> {doctor.phone}
-            </p>
-            <p>
-              <b>Email</b> {doctor.email}
-            </p>
-            {doctor.website && (
-              <p>
-                <b>Website</b> {doctor.website}
-              </p>
-            )}
-            <p>
-              <b>Address</b> {doctor.address}
-            </p>
-            <p>
-              <b>Specialization</b>{" "}
-              {doctor.specialization.map((spz, idx) => {
-                return (
-                  <>
-                    <span>{spz}</span>{" "}
-                    {idx != doctor.specialization.length - 1 ? "," : ""}{" "}
-                  </>
-                );
-              })}
-            </p>
-            <p>
-              <b>Experience</b> {doctor.experience}
-            </p>
-            <p>
-              <b>Fees Per Consultation</b> {doctor.feesPerConsultation}
-            </p>
-            <p>Rating : {doctor.netRating} ⭐</p>
+            <div className="row">
+              <div className="col-md-6">
+                <h3>
+                  Dr. {doctor.firstName} {doctor.lastName}
+                </h3>
+                <p>
+                  <b>Contact Info</b>
+                  <br />
+                  <span className="mx-2">
+                    <i className="fa-solid fa-phone mx-2"></i>
+                    {doctor.phone}
+                  </span>
+                  <span className="mx-2">
+                    <i className="fa-regular fa-envelope mx-2"></i>
+                    {doctor.email}
+                  </span>
+                </p>
 
-            <div>
-              {/* <form action="" onSubmit={submitRating}> */}
-              {/* <Form> */}
-              <h4>Give rating to the doctor</h4>
-              <fieldset class="starability-basic">
-                <input
-                  type="radio"
-                  id="no-rate"
-                  class="input-no-rate"
-                  name="review[rating]"
-                  value="1"
-                  checked
-                  aria-label="No rating."
-                  onClick={(e) => {
-                    setRating(e.target.value);
-                    console.log(rating);
-                    console.log(e.target.value);
-                  }}
-                />
-                <input
-                  type="radio"
-                  id="first-rate1"
-                  name="review[rating]"
-                  value="1"
-                  onClick={() => {
-                    setRating(1);
-                  }}
-                />
-                <label for="first-rate1" title="Terrible">
-                  1 star
-                </label>
-                <input
-                  type="radio"
-                  id="first-rate2"
-                  name="review[rating]"
-                  value="2"
-                  onClick={() => {
-                    setRating(2);
-                  }}
-                />
-                <label for="first-rate2" title="Not good">
-                  2 stars
-                </label>
-                <input
-                  type="radio"
-                  id="first-rate3"
-                  name="review[rating]"
-                  value="3"
-                  onClick={() => {
-                    setRating(3);
-                  }}
-                />
-                <label for="first-rate3" title="Average">
-                  3 stars
-                </label>
-                <input
-                  type="radio"
-                  id="first-rate4"
-                  name="review[rating]"
-                  value="4"
-                  onClick={() => {
-                    setRating(4);
-                  }}
-                />
-                <label for="first-rate4" title="Very good">
-                  4 stars
-                </label>
-                <input
-                  type="radio"
-                  id="first-rate5"
-                  name="review[rating]"
-                  value="5"
-                  onClick={() => {
-                    setRating(5);
-                  }}
-                />
-                <label for="first-rate5" title="Amazing">
-                  5 stars
-                </label>
-              </fieldset>
-              <button className="btn btn-success" onClick={submitRating}>
-                Submit Rating
-              </button>
-              {/* </Form> */}
-              {/* </form> */}
-            </div>
-            <h3>
-              Timings: {doctor.timings[0]} - {doctor.timings[1]}
-            </h3>
-            <div className="d-flex flex-column w-50">
-              <DatePicker
-                format="DD-MM-YYYY"
-                onChange={(value) => {
-                  setDate(value);
-                  setIsAvailable(false);
-                }}
-                value={date}
-                required
-              />
-              <TimePicker
-                format="HH:mm"
-                minuteStep={30}
-                hourStep={1}
-                onChange={(value) => {
-                  setTime(value);
-                  setIsAvailable(false);
-                }}
-                disabledTime={disabledTime}
-                value={time}
-                inputReadOnly // to prevent user fomr typing diabled values in input
-                allowClear
-                hideDisabledOptions //hide disabled time slots
-                addon={null}
-                required
-              />
-              {/* <DatePicker
-                format="DD-MM-YYYY"
-                onChange={(value) =>
-                  setDate(moment(value).format("DD-MM-YYYY"))
-                }
-              />
-              <TimePicker.RangePicker
-                format="HH:mm"
-                onChange={(value) => setTime(moment(value).format("HH:mm"))}
-              /> */}
-              <button
-                className="btn btn-info"
-                onClick={checkAvailabilityHandler}
-              >
-                Check Availability
-              </button>
-              {isAvailable && (
-                <button
-                  className="btn btn-dark"
-                  onClick={bookAppointmentHandler}
-                >
-                  Book Appointment
+                <p>
+                  <b>Specialization</b>{" "}
+                  <div className="d-flex flex-wrap">
+                    {doctor.specialization.map((spz, idx) => {
+                      return (
+                        <>
+                          <div className="spz">{spz}</div>{" "}
+                        </>
+                      );
+                    })}
+                  </div>
+                </p>
+                <p>
+                  <b> Rating : </b>
+                  {doctor.netRating} ⭐
+                </p>
+
+                <p>
+                  <b>Experience</b> {doctor.experience}
+                </p>
+                <p>
+                  <b>Fees Per Consultation</b> {doctor.feesPerConsultation}
+                </p>
+
+                <p>
+                  <b>
+                    {" "}
+                    Timings: {doctor.timings[0]} - {doctor.timings[1]}
+                  </b>
+                </p>
+                {doctor.website && (
+                  <p>
+                    <b>Website</b> {doctor.website}
+                  </p>
+                )}
+                <p>
+                  <b>Address</b> {doctor.address}
+                </p>
+              </div>
+              <div className="col-md-6">
+                <h3 className="my-2">Give rating to the doctor</h3>
+                <fieldset className="starability-basic">
+                  <input
+                    type="radio"
+                    id="no-rate"
+                    className="input-no-rate"
+                    name="review[rating]"
+                    value="1"
+                    checked
+                    aria-label="No rating."
+                    onClick={(e) => {
+                      setRating(e.target.value);
+                      // console.log(rating);
+                      // console.log(e.target.value);
+                    }}
+                  />
+                  <input
+                    type="radio"
+                    id="first-rate1"
+                    name="review[rating]"
+                    value="1"
+                    onClick={() => {
+                      setRating(1);
+                    }}
+                  />
+                  <label for="first-rate1" title="Terrible">
+                    1 star
+                  </label>
+                  <input
+                    type="radio"
+                    id="first-rate2"
+                    name="review[rating]"
+                    value="2"
+                    onClick={() => {
+                      setRating(2);
+                    }}
+                  />
+                  <label for="first-rate2" title="Not good">
+                    2 stars
+                  </label>
+                  <input
+                    type="radio"
+                    id="first-rate3"
+                    name="review[rating]"
+                    value="3"
+                    onClick={() => {
+                      setRating(3);
+                    }}
+                  />
+                  <label for="first-rate3" title="Average">
+                    3 stars
+                  </label>
+                  <input
+                    type="radio"
+                    id="first-rate4"
+                    name="review[rating]"
+                    value="4"
+                    onClick={() => {
+                      setRating(4);
+                    }}
+                  />
+                  <label for="first-rate4" title="Very good">
+                    4 stars
+                  </label>
+                  <input
+                    type="radio"
+                    id="first-rate5"
+                    name="review[rating]"
+                    value="5"
+                    onClick={() => {
+                      setRating(5);
+                    }}
+                  />
+                  <label for="first-rate5" title="Amazing">
+                    5 stars
+                  </label>
+                </fieldset>
+                <button className="btn btn-success" onClick={submitRating}>
+                  Submit Rating
                 </button>
-              )}
+                <div className="my-3">
+                  <h3 className="text-center">Book Appointment</h3>
+                  <h5>
+                    Timings: {doctor.timings[0]} - {doctor.timings[1]}
+                  </h5>
+                  <div className="d-flex flex-column w-50">
+                    <DatePicker
+                      className="my-2"
+                      format="DD-MM-YYYY"
+                      onChange={(value) => {
+                        setDate(value);
+                        setIsAvailable(false);
+                      }}
+                      value={date}
+                      required
+                    />
+                    <TimePicker
+                      className="mb-3"
+                      format="HH:mm"
+                      minuteStep={30}
+                      hourStep={1}
+                      onChange={(value) => {
+                        setTime(value);
+                        setIsAvailable(false);
+                      }}
+                      disabledTime={disabledTime}
+                      value={time}
+                      inputReadOnly // to prevent user fomr typing diabled values in input
+                      allowClear
+                      hideDisabledOptions //hide disabled time slots
+                      addon={null}
+                      required
+                    />
+                    <button
+                      className="btn btn-info mb-3"
+                      onClick={checkAvailabilityHandler}
+                    >
+                      Check Availability
+                    </button>
+                    {isAvailable && (
+                      <button
+                        className="btn btn-dark mb-3"
+                        onClick={bookAppointmentHandler}
+                      >
+                        Book Appointment
+                      </button>
+                    )}
+                  </div>
+                </div>
+              </div>
             </div>
+
+            <div></div>
           </div>
         )}
       </div>

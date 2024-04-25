@@ -6,11 +6,16 @@ const DocAppointments = () => {
   const [appointments, setAppointments] = useState();
   const getAppointments = async () => {
     try {
-      const res = await axios.get(`${import.meta.env.VITE_BACKEND_API}/api/v1/doctor/getDoctorAppointments`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      const res = await axios.get(
+        `${
+          import.meta.env.VITE_BACKEND_API
+        }/api/v1/doctor/getDoctorAppointments`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
       if (res.data.success) {
         setAppointments(res.data.data);
       } else {
@@ -28,7 +33,9 @@ const DocAppointments = () => {
   const markAppointmentCompletedHandler = async (record) => {
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_BACKEND_API}/api/v1/doctor/markAppointmentCompleted`,
+        `${
+          import.meta.env.VITE_BACKEND_API
+        }/api/v1/doctor/markAppointmentCompleted`,
         {
           appointmentId: record._id,
         },
@@ -138,7 +145,7 @@ const DocAppointments = () => {
   return (
     <Layout>
       <div>
-        <h3>My Appointments</h3>
+        <h3 className="text-center my-3 mb-4">My Appointments</h3>
         {appointments && <Table columns={columns} dataSource={appointments} />}
         {/* {appointments &&
         appointments.map((appt) => {

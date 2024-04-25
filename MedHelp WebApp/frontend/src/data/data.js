@@ -5,6 +5,11 @@ export const userMenu = [
     icon: "fa-solid fa-house",
   },
   {
+    name: "Find Doctors",
+    path: "/all-doctors",
+    icon: "fa-solid fa-briefcase-medical",
+  },
+  {
     name: "Appointments",
     path: "/user/appointments",
     icon: "fa-solid fa-list",
@@ -32,13 +37,13 @@ export const doctorMenu = [
     path: "/",
     icon: "fa-solid fa-house",
   },
+  // {
+  //   name: "My Appointments",
+  //   path: "/user/appointments",
+  //   icon: "fa-solid fa-list",
+  // },
   {
     name: "My Appointments",
-    path: "/user/appointments",
-    icon: "fa-solid fa-list",
-  },
-  {
-    name: "Clinic Appointments",
     path: "/doctor/appointments",
     icon: "fa-solid fa-list",
   },
@@ -62,12 +67,12 @@ export const adminMenu = [
     icon: "fa-solid fa-house",
   },
   {
-    name: "Doctors",
+    name: "Manage Doctors",
     path: "/admin/doctors",
     icon: "fa-solid fa-user-doctor",
   },
   {
-    name: "Users",
+    name: "Manage Users",
     path: "/admin/users",
     icon: "fa-solid fa-user",
   },

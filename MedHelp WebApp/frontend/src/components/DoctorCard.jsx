@@ -11,73 +11,50 @@ export default function DoctorCard({ doctor }) {
         onClick={() => navigate(`/book-appointment/${doctor._id}`)}
         style={{ cursor: "pointer", width: "45%" }}
       >
-        <div class="card d-flex justify-content-center align-items-center pt-3">
+        <div className="card d-flex justify-content-center align-items-center pt-3">
           <img
             src="/images/docpic2.png"
-            class="card-img-top"
+            className="card-img-top docimg"
             alt="..."
             // width="50%"
             // height="80px"
-            className="docimg"
+            // className="docimg"
           />
-          <div class="card-body" style={{ width: "95%" }}>
-            <h5 class="card-title">
+          <div className="card-body" style={{ width: "95%" }}>
+            <h5 className="card-title">
               Dr. {doctor.firstName} {doctor.lastName}
             </h5>
-            <p class="card-text">
+            <p className="card-text">
               <b>Specialization</b>{" "}
               <div className="d-flex flex-wrap">
                 {doctor.specialization.map((spz, idx) => {
                   return (
                     <>
                       <div className="spz">{spz}</div>{" "}
-                      {/* {idx != doctor.specialization.length - 1 ? "," : ""} */}
                     </>
                   );
                 })}
               </div>
             </p>
-            <p class="card-text">
+            <p className="card-text">
               <b>Experience</b> {doctor.experience}
             </p>
-            <p class="card-text">
+            <p className="card-text">
               <b>Fees Per Consultation</b> {doctor.feesPerConsultation}
             </p>
-            <p class="card-text">
+            <p>
+              <b>Rating:</b> {doctor.netRating} ⭐
+            </p>
+            <p className="card-text">
               <b>Timings</b> {doctor.timings[0]} - {doctor.timings[1]}
             </p>
             <div className="d-flex justify-content-center">
-              <a href="#" class="btn btn-dark">
+              <a href="#" className="btn btn-dark">
                 See Details
               </a>
             </div>
           </div>
         </div>
-        {/* <div className="card-header">
-          Dr. {doctor.firstName} {doctor.lastName}
-        </div>
-        <div className="card-body">
-          <p>
-            <b>Specialization</b>{" "}
-            {doctor.specialization.map((spz, idx) => {
-              return (
-                <>
-                  <span>{spz}</span>{" "}
-                  {idx != doctor.specialization.length - 1 ? "," : ""}
-                </>
-              );
-            })}
-          </p>
-          <p>
-            <b>Experience</b> {doctor.experience}
-          </p>
-          <p>
-            <b>Fees Per Consultation</b> {doctor.feesPerConsultation}
-          </p>
-          <p>
-            <b>Timings</b> {doctor.timings[0]} - {doctor.timings[1]}
-          </p>
-        </div> */}
       </div>
     </>
   );

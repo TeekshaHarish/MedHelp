@@ -1,18 +1,25 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../../components/Layout";
 import axios from "axios";
-import { Col, Form, Input, Row, TimePicker, message } from "antd";
+import { Col, Form, Input, Row, TimePicker, Select, message } from "antd";
 import moment from "moment";
-
+import { specialisation } from "../../data/meddata";
+const options = specialisation.map((spc) => ({
+  value: spc,
+  label: spc,
+}));
 const DocProfile = () => {
   const [doctor, setDoctor] = useState();
   const getDoctorInfo = async () => {
     try {
-      const res = await axios.get(`${import.meta.env.VITE_BACKEND_API}/api/v1/doctor/getDoctorInfo`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      const res = await axios.get(
+        `${import.meta.env.VITE_BACKEND_API}/api/v1/doctor/getDoctorInfo`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
       if (res.data.success) {
         setDoctor(res.data.data);
       } else {
@@ -131,13 +138,32 @@ const DocProfile = () => {
           <h4>Professional Details</h4>
           <Row gutter={20}>
             <Col xs={24} md={24} lg={8}>
-              <Form.Item
+              {/* <Form.Item
                 label="Specialization"
                 name="specialization"
                 required
                 rules={[{ required: true }]}
               >
                 <Input type="text" placeholder="your specialization" />
+              </Form.Item> */}
+              <Form.Item
+                label="Specialization"
+                name="specialization"
+                required
+                rules={[{ required: true }]}
+              >
+                {/* <Input type="text" placeholder="your specialization" /> */}
+                <Select
+                  mode="multiple"
+                  allowClear
+                  style={{
+                    width: "100%",
+                  }}
+                  placeholder="Please select your specialization"
+                  defaultValue={[]}
+                  // onChange={handleChange}
+                  options={options}
+                />
               </Form.Item>
             </Col>
             <Col xs={24} md={24} lg={8}>

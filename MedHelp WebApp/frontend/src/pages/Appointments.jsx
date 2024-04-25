@@ -100,7 +100,7 @@ const Appointments = () => {
             deleteAppointmentHandler(record);
           }}
         >
-          <i class="fa-solid fa-xmark"></i> Cancel
+          <i className="fa-solid fa-xmark"></i> Cancel
         </div>
       ),
     },
