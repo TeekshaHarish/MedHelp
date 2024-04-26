@@ -16,21 +16,6 @@ const Symptoms = () => {
         }
       }
       console.log(symptomslist);
-      //   return;
-      //   console.log({
-      //     ...values,
-      //     timings: [
-      //       values.timings[0].format("HH:mm"),
-      //       values.timings[1].format("HH:mm"),
-      //     ],
-      //   });
-      // console.log("BEFORE", values);
-      // console.log(values.timings[0], values.timings[1]);
-      // console.log(
-      //   moment(values.timings[0], "HH:mm").format("HH:mm"),
-      //   moment(values.timings[1], "HH:mm").format("HH:mm")
-      // );
-      //   console.log("FORM", formTimings);
       const res = await axios.post(
         "http://127.0.0.1:5000/predictapi",
         {
@@ -51,7 +36,6 @@ const Symptoms = () => {
         navigate("/recommended-doctors", {
           state: { predictedDisease: disease },
         });
-        // navigate("/");
       } else {
         message.error("Error while fetching predicting data from ML Model");
       }
@@ -68,18 +52,10 @@ const Symptoms = () => {
   console.log(option);
   return (
     <Layout>
-      <h1 className="text-center">Apply Doctor</h1>
+      <h1 className="text-center my-3">Please tell your symptoms</h1>
       <Form layout="vertical" onFinish={onFinishHandler} className="m-4">
         <h4>Enter Symptoms</h4>
 
-        {/* <Form.Item
-          label="First name"
-          name="firstName"
-          required
-          rules={[{ required: true }]}
-        >
-          <Input type="text" placeholder="your first name" />
-        </Form.Item> */}
         <div className="container">
           <Form.Item
             label="Symptom 1"

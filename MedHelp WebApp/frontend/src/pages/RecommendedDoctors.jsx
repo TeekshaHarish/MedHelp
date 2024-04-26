@@ -5,9 +5,10 @@ import { message } from "antd";
 import DoctorCard from "../components/DoctorCard";
 import { useLocation, useNavigate } from "react-router-dom";
 import FilterSortForm from "../components/FilterSortForm";
-import { medicalConditions } from "../data/meddata";
-medicalConditions;
-
+import {
+  medicalConditionsSpecializations,
+  medicalConditions,
+} from "../data/meddata";
 const RecommendedDoctors = () => {
   const navigate = useNavigate();
   const location = useLocation();

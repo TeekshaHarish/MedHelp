@@ -63,7 +63,7 @@ const DocProfile = () => {
   };
   return (
     <Layout>
-      <div>DocProfile</div>
+      <h3 className="text-center my-3">DocProfile</h3>
       {doctor && (
         <Form
           layout="vertical"

@@ -83,8 +83,6 @@ const FilterSortForm = ({ onSubmitFilter, onSubmitSort }) => {
                   options={options}
                 />
               </Form.Item>
-              {/* </div>
-          <div className="col-md-4"> */}
               <div
                 className="btn-group"
                 role="group"
