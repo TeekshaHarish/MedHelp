@@ -24,8 +24,6 @@ The MedHelp repository hosts the source code for a comprehensive healthcare mana
    - Administrators have access to backend functionalities for managing user and doctor profiles, approving doctor requests, and overseeing system operations.
 
 
-Details about the project can be found in this: https://drive.google.com/file/d/1HSXZZq1Vem7mhHPbsm9lS8AHougc2aUN/view
-
 
 ## Installation
 
