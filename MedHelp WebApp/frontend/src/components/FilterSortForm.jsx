@@ -49,7 +49,7 @@ const FilterSortForm = ({ onSubmitFilter, onSubmitSort }) => {
 
   const onChangeRadio = (e) => {
     console.log("radio checked", e.target.value);
-    setOrder(e.target.value);
+    setOrder(parseInt(e.target.value));
   };
   return (
     <div className="container">
@@ -88,6 +88,9 @@ const FilterSortForm = ({ onSubmitFilter, onSubmitSort }) => {
               <div
                 className="btn-group"
                 role="group"
+                name="order"
+                onChange={onChangeRadio}
+                value={order}
                 aria-label="Basic radio toggle button group"
                 style={{ height: "35px", width: "35px" }}
               >
@@ -97,7 +100,8 @@ const FilterSortForm = ({ onSubmitFilter, onSubmitSort }) => {
                   name="btnradio"
                   id="btnradio1"
                   autocomplete="off"
-                  checked
+                  onChange={onChangeRadio}
+                  value={1}
                 />
                 <label className="btn btn-outline-primary" for="btnradio1">
                   <svg
@@ -115,6 +119,8 @@ const FilterSortForm = ({ onSubmitFilter, onSubmitSort }) => {
                   name="btnradio"
                   id="btnradio2"
                   autocomplete="off"
+                  onChange={onChangeRadio}
+                  value={-1}
                 />
                 <label className="btn btn-outline-primary" for="btnradio2">
                   <svg

@@ -330,6 +330,7 @@ const sortAllDoctorsController=async(req,res)=>{
 const sortRecommendedDoctorsController=async(req,res)=>{
     try {
         const {query,querysort}=req.body;
+        clg(query,querysort);
         const doctors=await doctorModel.find({...query, status:"approved"}).sort(querysort);
         console.log(doctors, query, querysort);
         res.status(200).send({

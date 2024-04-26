@@ -55,7 +55,7 @@ const AllDoctors = () => {
 
   const onSubmitSort = async (values) => {
     // console.log("Hi");
-    // console.log(values);
+    console.log(values);
     if (!values.sortBy) {
       message.error("Choose sort by which property!");
       return;

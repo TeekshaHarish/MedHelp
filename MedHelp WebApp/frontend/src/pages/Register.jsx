@@ -35,7 +35,7 @@ export default function Register() {
           className="register-form"
         >
           <h3 className="text-center">Register</h3>
-          <Form.Item label="name" name="name" className="white-label">
+          <Form.Item label="Name" name="name" className="white-label">
             <Input type="text" required />
           </Form.Item>
           <Form.Item label="Email" name="email" className="white-label">

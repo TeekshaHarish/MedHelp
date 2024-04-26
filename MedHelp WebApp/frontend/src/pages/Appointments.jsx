@@ -110,14 +110,6 @@ const Appointments = () => {
       <h3 className="text-center py-3">Appointments</h3>
       <div className="container">
         {appointments && <Table columns={columns} dataSource={appointments} />}
-        {/* {appointments &&
-        appointments.map((appt) => {
-          return(
-            <div>
-
-            </div>
-          );
-        })} */}
       </div>
     </Layout>
   );
